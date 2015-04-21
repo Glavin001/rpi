@@ -51,3 +51,16 @@ For example, my `image` is `./jasper-disk-image.img` and `diskn` is `disk2`.
 ```bash
 pv ./jasper-disk-image.img | sudo dd of=/dev/disk2 bs=1m
 ```
+
+Alternatively you can let `pv` do more heavy lifting.
+It might even improve performance. See http://askubuntu.com/a/523043 for details.
+
+You will need to login as root. See http://askubuntu.com/a/230482 for details.
+
+```bash
+# Login as root
+sudo -i
+# Copy Image to SD Card using only pv and redirection
+sudo pv < ./jasper-disk-image.img > /dev/disk2
+```
+
